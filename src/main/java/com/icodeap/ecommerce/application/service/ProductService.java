@@ -4,6 +4,7 @@ package com.icodeap.ecommerce.application.service;
 import com.icodeap.ecommerce.application.repository.ProductRepository;
 import com.icodeap.ecommerce.domain.Product;
 import com.icodeap.ecommerce.domain.User;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,10 +34,10 @@ public class ProductService {
         return  productRepository.getProductById(id);
     }
 
-    public Product saveProduct(Product product, MultipartFile multipartFile) throws IOException {
+    public Product saveProduct(Product product, MultipartFile multipartFile, HttpSession httpSession ) throws IOException{
         if(product.getId()==null){
             User user = new User();
-            user.setId(1);
+            user.setId( Integer.parseInt(httpSession.getAttribute("iduser").toString()));
             product.setDateCreated(LocalDateTime.now());
             product.setDateUpdated(LocalDateTime.now());
             product.setUser(user);

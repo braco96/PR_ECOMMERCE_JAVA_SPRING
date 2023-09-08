@@ -22,15 +22,18 @@
 <body>
 
   <!-- Navigation -->
-  <div th:insert = "~{user/template_user::header}"></div>
+  <div  th:insert = "~{user/template_user::header}" th:if="${id==null}"></div>
 
-    <!-- Page Content -->
+  <div th:insert = "~{user/template_user::userlogged}" th:unless="${id==null}"></div>
+
+
+  <!-- Page Content -->
     <div class="container">
 
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
-        <h1 class="display-3">Bienvenido a Spring Ecommerce 2023</h1>
-        <p class="lead">Tu tienda de productos en Línea</p>
+        <h1 class="display-3" >Bienvenido a Spring Ecommerce 2023</h1>
+        <p class="lead" >Tu tienda de productos en Línea</p>
       </header>
 
       <!-- Page Features -->
