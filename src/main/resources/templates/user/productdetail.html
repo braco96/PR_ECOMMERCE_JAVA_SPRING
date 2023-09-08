@@ -22,7 +22,9 @@
 <body>
 
   <!-- Navigation -->
-  <div th:insert = "~{user/template_user::header}"></div>
+  <div th:insert = "~{user/template_user::header}" th:if="${id==null}"></div>
+
+  <div th:insert = "~{user/template_user::userlogged}" th:unless="${id==null}"></div>
 
     <!-- Page Content -->
     <div class="container">
@@ -34,7 +36,7 @@
       </h1>
 
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
         <li class="breadcrumb-item active">Producto</li>
       </ol>
 
