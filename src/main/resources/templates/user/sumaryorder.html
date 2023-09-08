@@ -23,9 +23,7 @@
 <body>
 
   <!-- Navigation -->
-  <div th:insert = "~{user/template_user::header}" th:if="${id==null}"></div>
-
-  <div th:insert = "~{user/template_user::userlogged}" th:unless="${id==null}"></div>
+  <div th:insert = "~{user/template_user::header}"></div>
 
     <!-- Page Content -->
     <div class="container">
