@@ -1,10 +1,6 @@
 HELP.md
 target/
-<<<<<<< HEAD
-.mvn/wrapper/maven-wrapper.jar
-=======
 !.mvn/wrapper/maven-wrapper.jar
->>>>>>> 657a8ff (entidades , clases de persistencia , interfaces y mapeo para usuarios y productos,)
 !**/src/main/**/target/
 !**/src/test/**/target/
 
