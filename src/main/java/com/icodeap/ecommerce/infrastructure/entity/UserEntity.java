@@ -26,5 +26,6 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private UserType userType;
     private LocalDateTime dateCreated;
-
+    @OneToMany
+    private List<ProductEntity> products;
 }

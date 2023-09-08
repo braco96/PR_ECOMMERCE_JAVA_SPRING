@@ -17,21 +17,18 @@ public class ValidateStock {
         return stockList.isEmpty() ? false : true;
     }
 
-    public Stock  calculateBalance(Stock stock){
-        if (stock.getUnitIn()  != 0){
-            if(existBalance(stock.getProduct())){
-                List<Stock> stockList = stockService.getStockByProduct(stock.getProduct());
-                Integer balance = stockList.get(stockList.size() -1).getBalance();
-                stock.setBalance(balance +stock.getUnitIn());
-             }else {
-                stock.setBalance(stock.getUnitIn());
-            }
-        }else {
-            List<Stock> stockList = stockService.getStockByProduct(stock.getProduct());
-            Integer balance = stockList.get(stockList.size() -1).getBalance();
+    public Stock calculateBalance(Stock stock) {
+        List<Stock> stockList = stockService.getStockByProduct(stock.getProduct());
+        int balance = stockList.isEmpty() ? 0 : stockList.get(stockList.size() - 1).getBalance();
+
+        if (stock.getUnitIn() != 0) {
+            stock.setBalance(balance + stock.getUnitIn());
+        } else {
             stock.setBalance(balance - stock.getUnitOut());
         }
-        return  stock;
+
+        return stock;
     }
 
 }
+
