@@ -23,7 +23,9 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: maven
+      # Genera el sitio estático (incluye Javadoc)
       - run: mvn -B -DskipTests site javadoc:javadoc
+      # Sube el sitio a los artefactos de Pages
       - uses: actions/upload-pages-artifact@v3
         with:
           path: target/site
